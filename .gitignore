@@ -14,6 +14,7 @@ dist-ssr
 
 # Variables de entorno
 .env
+.DS_Store
 .env.local
 
 # Editor directories and files

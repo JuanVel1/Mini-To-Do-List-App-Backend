@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: todo-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: PGDATABASE
+        fromDatabase:
+          name: todo_db
+          property: database
+      - key: PGUSER
+        fromDatabase:
+          name: todo_db
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: todo_db
+          property: password
+      - key: PGHOST
+        fromDatabase:
+          name: todo_db
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: todo_db
+          property: port
+
+databases:
+  - name: todo_db
+    databaseName: todo_db
+    plan: free 

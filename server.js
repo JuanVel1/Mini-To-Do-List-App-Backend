@@ -6,11 +6,12 @@ require('dotenv').config();
 
 const app = express();
 const pool = new Pool({
-    user: process.env.VITE_USER,
-    host: process.env.VITE_HOST,
-    database: process.env.VITE_DATABASE,
-    password: process.env.VITE_PASSWORD,
-    port: process.env.VITE_PORT,
+    user: process.env.PGUSER,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
 
