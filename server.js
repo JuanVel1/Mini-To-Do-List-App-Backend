@@ -14,7 +14,13 @@ const pool = new Pool({
 });
 
 
-app.use(cors());
+app.use(cors({
+    origin: [
+      'http://localhost:5173',
+      'https://mini-to-do-app.netlify.app/'  // Tu dominio de Netlify
+    ],
+    credentials: true
+  }));
 app.use(json());
 
 // Ruta para obtener todas las tareas
